@@ -4,7 +4,7 @@
   "description": "The standard ROS Javascript Visualization Library",
   "version": "0.17.0-SNAPSHOT",
   "license": "BSD-3-Clause",
-  "main": "./src/Ros3D.js",
+  "main": "./ros3djs_wrapper.js",
   "devDependencies": {
     "chai": "^3.5.0",
     "grunt": "^1.0.1",

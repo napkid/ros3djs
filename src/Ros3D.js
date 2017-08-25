@@ -7,6 +7,21 @@ var ROS3D = ROS3D || {
   REVISION : '0.17.0-SNAPSHOT'
 };
 
+// CommonJS check
+if(typeof module !== 'undefined') {
+  module.exports = ROS3D;
+}
+
+/*global require */
+var THREE = THREE || typeof require !== 'undefined' && require('three');
+if(!THREE) {
+  throw new Error('This library requires THREE.js');
+}
+var EventEmitter2 = EventEmitter2 || typeof require !== 'undefined' && require('eventemitter2');
+if(!THREE) {
+  throw new Error('This library requires EventEmitter2');
+}
+
 // Marker types
 ROS3D.MARKER_ARROW = 0;
 ROS3D.MARKER_CUBE = 1;
