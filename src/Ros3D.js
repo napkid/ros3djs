@@ -22,6 +22,21 @@ if(!THREE) {
   throw new Error('This library requires EventEmitter2');
 }
 
+var ColladaLoader2 = ColladaLoader2 || typeof require !== 'undefined' && require('./../../ColladaLoader2Wrapped');
+var STLLoader = require('three-stl-loader')(THREE);
+
+if(!ColladaLoader2) {
+  console.error('ColladaLoader2 not loaded');
+}
+if(!STLLoader) {
+  console.error('STLLoader not loaded');
+}
+
+THREE.STLLoader = STLLoader;
+if(!THREE.STLLoader) {
+  console.error('THREE.STLLoader not defined');
+}
+
 // Marker types
 ROS3D.MARKER_ARROW = 0;
 ROS3D.MARKER_CUBE = 1;
