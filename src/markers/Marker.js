@@ -41,6 +41,14 @@ ROS3D.Marker = function(options) {
   var colorMaterial = ROS3D.makeColorMaterial(this.msgColor.r,
       this.msgColor.g, this.msgColor.b, this.msgColor.a);
 
+  // check message lifetime
+  if(message.lifetime){
+    var timeout = 
+      message.lifetime.secs * 1000 
+      + message.lifetime.nsecs * 1000000;
+    setTimeout(this.dispose.bind(this), timeout);
+  }
+
   // create the object based on the type
   switch (message.type) {
     case ROS3D.MARKER_ARROW:
