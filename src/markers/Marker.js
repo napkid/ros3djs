@@ -43,10 +43,12 @@ ROS3D.Marker = function(options) {
 
   // check message lifetime
   if(message.lifetime){
-    var timeout = 
+    var time = 
       message.lifetime.secs * 1000 
       + message.lifetime.nsecs * 1000000;
-    setTimeout(this.dispose.bind(this), timeout);
+      if(time > 0){
+        setTimeout(this.dispose.bind(this), time);
+      }
   }
 
   // create the object based on the type
