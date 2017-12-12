@@ -40,6 +40,7 @@ ROS3D.Urdf = function(options) {
         if (visual.material && visual.material.color) {
           var color = visual.material && visual.material.color;
           colorMaterial = ROS3D.makeColorMaterial(color.r, color.g, color.b, color.a);
+          colorMaterial.side = THREE.DoubleSide;
         }
         if (visual.geometry.type === ROSLIB.URDF_MESH) {
           var uri = visual.geometry.filename;
