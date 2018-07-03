@@ -34,6 +34,14 @@ ROS3D.MeshResource = function(options) {
   }
 
   var uri = path + resource;
+
+  // Fix path
+  var match = uri.match(/file:\/\/.*\/meshes\/(.+\.(stl|dae|png))/);
+  if(match[1]){
+    uri = '/static/meshes/'+match[1];
+  }
+
+
   var fileType = uri.substr(-4).toLowerCase();
 
   // check the type
